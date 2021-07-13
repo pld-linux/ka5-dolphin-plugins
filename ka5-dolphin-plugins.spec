@@ -35,6 +35,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Plugins for Dolphin.
 
+%description -l pl.UTF-8
+Wtyczki do Dolphina.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
