@@ -1,15 +1,15 @@
-%define		kdeappsver	21.04.3
+%define		kdeappsver	21.08.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		dolphin-plugins
 Summary:	Dolphin plugins
 Name:		ka5-%{kaname}
-Version:	21.04.3
+Version:	21.08.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	e11aa471f70dd1edbbff3fb10279b637
+# Source0-md5:	778f0ed052c07145684fe7a6ce2a65cc
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -62,18 +62,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/qt5/plugins/fileviewbazaarplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/fileviewdropboxplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/fileviewgitplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/fileviewhgplugin.so
-%attr(755,root,root) %{_libdir}/qt5/plugins/fileviewsvnplugin.so
 %{_datadir}/config.kcfg/fileviewgitpluginsettings.kcfg
 %{_datadir}/config.kcfg/fileviewhgpluginsettings.kcfg
 %{_datadir}/config.kcfg/fileviewsvnpluginsettings.kcfg
-%{_datadir}/kservices5/fileviewbazaarplugin.desktop
-%{_datadir}/kservices5/fileviewdropboxplugin.desktop
-%{_datadir}/kservices5/fileviewgitplugin.desktop
-%{_datadir}/kservices5/fileviewhgplugin.desktop
-%{_datadir}/kservices5/fileviewsvnplugin.desktop
 %attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfileitemaction/mountisoaction.so
 %{_datadir}/metainfo/org.kde.dolphin-plugins.metainfo.xml
+%dir %{_libdir}/qt5/plugins/dolphin/vcs
+%{_libdir}/qt5/plugins/dolphin/vcs/fileviewbazaarplugin.so
+%{_libdir}/qt5/plugins/dolphin/vcs/fileviewdropboxplugin.so
+%{_libdir}/qt5/plugins/dolphin/vcs/fileviewgitplugin.so
+%{_libdir}/qt5/plugins/dolphin/vcs/fileviewhgplugin.so
+%{_libdir}/qt5/plugins/dolphin/vcs/fileviewsvnplugin.so
