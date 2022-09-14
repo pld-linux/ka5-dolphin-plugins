@@ -20,6 +20,7 @@ BuildRequires:	Qt5Network-devel
 BuildRequires:	Qt5Widgets-devel
 BuildRequires:	cmake >= 2.8.12
 BuildRequires:	gettext-devel
+BuildRequires:	ka5-dolphin-devel >= %{kdeappsver}
 BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
 BuildRequires:	kf5-ki18n-devel >= %{kframever}
 BuildRequires:	kf5-kio-devel >= %{kframever}
