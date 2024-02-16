@@ -1,35 +1,35 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.08.4
+%define		kdeappsver	24.01.95
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		dolphin-plugins
 Summary:	Dolphin plugins
 Name:		ka5-%{kaname}
-Version:	23.08.4
-Release:	1
+Version:	24.01.95
+Release:	0.1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	55e6de2e4373cc054617994c42d28a4c
+Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	71d5092a017e3f8aa03db99b4b5f0d41
 URL:		http://www.kde.org/
-BuildRequires:	Qt5Core-devel >= %{qtver}
-BuildRequires:	Qt5Gui-devel >= 5.11.1
-BuildRequires:	Qt5Network-devel
-BuildRequires:	Qt5Widgets-devel
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6Gui-devel >= 5.11.1
+BuildRequires:	Qt6Network-devel
+BuildRequires:	Qt6Widgets-devel
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
 BuildRequires:	ka5-dolphin-devel >= %{kdeappsver}
-BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf5-ki18n-devel >= %{kframever}
-BuildRequires:	kf5-kio-devel >= %{kframever}
-BuildRequires:	kf5-ktexteditor-devel >= %{kframever}
-BuildRequires:	kf5-ktextwidgets-devel >= %{kframever}
-BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
-BuildRequires:	kf5-kxmlgui-devel >= %{kframever}
+BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf6-ki18n-devel >= %{kframever}
+BuildRequires:	kf6-kio-devel >= %{kframever}
+BuildRequires:	kf6-ktexteditor-devel >= %{kframever}
+BuildRequires:	kf6-ktextwidgets-devel >= %{kframever}
+BuildRequires:	kf6-kwidgetsaddons-devel >= %{kframever}
+BuildRequires:	kf6-kxmlgui-devel >= %{kframever}
 BuildRequires:	ninja
-BuildRequires:	qt5-build >= %{qtver}
+BuildRequires:	qt6-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -72,14 +72,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
+%dir %{_libdir}/qt6/plugins/dolphin/vcs
+%attr(755,root,root) %{_libdir}/qt6/plugins/dolphin/vcs/fileviewbazaarplugin.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/dolphin/vcs/fileviewdropboxplugin.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/dolphin/vcs/fileviewgitplugin.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/dolphin/vcs/fileviewhgplugin.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/dolphin/vcs/fileviewsvnplugin.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfileitemaction/makefileactions.so
+%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/kfileitemaction/mountisoaction.so
 %{_datadir}/config.kcfg/fileviewgitpluginsettings.kcfg
 %{_datadir}/config.kcfg/fileviewhgpluginsettings.kcfg
 %{_datadir}/config.kcfg/fileviewsvnpluginsettings.kcfg
-%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/kfileitemaction/mountisoaction.so
 %{_datadir}/metainfo/org.kde.dolphin-plugins.metainfo.xml
-%dir %{_libdir}/qt5/plugins/dolphin/vcs
-%{_libdir}/qt5/plugins/dolphin/vcs/fileviewbazaarplugin.so
-%{_libdir}/qt5/plugins/dolphin/vcs/fileviewdropboxplugin.so
-%{_libdir}/qt5/plugins/dolphin/vcs/fileviewgitplugin.so
-%{_libdir}/qt5/plugins/dolphin/vcs/fileviewhgplugin.so
-%{_libdir}/qt5/plugins/dolphin/vcs/fileviewsvnplugin.so
